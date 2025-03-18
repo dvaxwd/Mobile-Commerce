@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Page 1'),
-        backgroundColor: Colors.pink[200],
+        backgroundColor: Color(0xFFF8BBF2),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(50),

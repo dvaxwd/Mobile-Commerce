@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/signup.dart';
+import 'pages/homepage.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,7 +16,8 @@ class MainApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: const SignUpPage(),
+      home: const HomePage(),
+      // home: const SignUpPage(),
     );
   }
 }

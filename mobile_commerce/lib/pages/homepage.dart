@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
                     radius: 30,
                     backgroundColor: Colors.grey,
                     child: Image.asset(
-                      'assets/profile.png',
+                      'assets/img/avatar.png',
                       errorBuilder: (context, error, stackTrace) {
                         return Icon(Icons.broken_image, color: Colors.grey);
                       },
@@ -46,15 +46,15 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _buildStatusCard('สถานที่ทำงาน', '😄'),
+                    _buildStatusCard('สถานที่ทำงาน', 'assets/img/happy-face.png'),
                     const SizedBox(width: 12),
-                    _buildStatusCard('กีฬา', '🏀'),
+                    _buildStatusCard('กีฬา', 'assets/img/basketball.png'),
                     const SizedBox(width: 12),
-                    _buildStatusCard('การแต่งกาย', '👕'),
+                    _buildStatusCard('การแต่งกาย', 'assets/img/polo-shirt.png'),
                     const SizedBox(width: 12),
-                    _buildStatusCard('อาหาร', '🍜'),
+                    _buildStatusCard('อาหาร', 'assets/img/happy-face.png'),
                     const SizedBox(width: 12),
-                    _buildStatusCard('ดนตรี', '🎵'),
+                    _buildStatusCard('ดนตรี', 'assets/img/basketball.png'),
                   ],
                 ),
               ),
@@ -83,19 +83,19 @@ class HomePage extends StatelessWidget {
               ),
             ),
             _buildListItem(
-              'น้ำตกธรรมชาติ',
-              'น้ำตกที่สวยงามท่ามกลางป่าเขียวขจี\nบรรยากาศร่มรื่น เย็นสบาย',
-              'assets/น้ำตก.png',
+              'Filipar Gaspar',
+              'I\'m Going to Shake Your Hand Way Too Hard',
+              'assets/img/listpic-01.png',
             ),
             _buildListItem(
-              'ภูเขาหิมะ',
-              'ภูเขาสูงตระหง่านพร้อมหิมะปกคลุม\nวิวทิวทัศน์สวยงาม',
-              'assets/ภูเขา.png',
+              'Jeremias Del Pozo',
+              'I\'m Going to Shake Your Hand Way Too Hard',
+              'assets/img/listpic-02.png',
             ),
             _buildListItem(
-              'ทะเลสาบในหุบเขา',
-              'ทะเลสาบสีฟ้าใสท่ามกลางขุนเขา\nอากาศบริสุทธิ์ วิวสวยงาม',
-              'assets/แม่น้ำ.png',
+              'Ngo Hai Giang',
+              'I\'m Going to Shake Your Hand Way Too Hard',
+              'assets/img/listpic-03.png',
             ),
           ]
         ),
@@ -146,28 +146,26 @@ class HomePage extends StatelessWidget {
     );
   }
   //status card
-  Widget _buildStatusCard(String title, String icon) {
+  Widget _buildStatusCard(String title, String img) {
     return Container(
       width: 110,
       height: 140,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(174, 255, 247, 201),
+        color: const Color.fromARGB(157, 255, 248, 205),
         borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            icon,
-            style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          CircleAvatar(
+            radius: 30,
+            child: Image.asset(
+              img,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Icon(Icons.broken_image, color: Colors.grey);
+              }
+            ),
           ),
           const SizedBox(height: 8),
           Text(
@@ -175,7 +173,7 @@ class HomePage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],
@@ -189,13 +187,13 @@ class HomePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         child: Image.asset(
           imagePath,
-          width: 150,
-          height: 150,
-          fit: BoxFit.cover,
+          width: 120,
+          height: 120,
+          fit: BoxFit.fill,
           errorBuilder: (context, error, stackTrace) {
             return Container(
-              width: 150,
-              height: 150,
+              width: 120,
+              height: 120,
               color: Colors.grey[300],
               child: const Icon(Icons.broken_image, color: Colors.grey),
             );
@@ -204,7 +202,7 @@ class HomePage extends StatelessWidget {
       ),
       title: Text(title),
       subtitle: Text(subtitle),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
     );
   }
 }

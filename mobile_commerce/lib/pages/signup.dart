@@ -12,7 +12,6 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   // final _formKey = GlobalKey<FormState>();
   DateTime? _selectedDate;
-  File? _imageFile;
   final List<String> _prefixname = ['นาย', 'นาง', 'นางสาว'];
 
   Future<void> _selectDate(BuildContext context) async {
@@ -53,13 +52,17 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: CircleAvatar(
                   radius: 50,
                   backgroundColor: Colors.grey[300],
-                  backgroundImage: _imageFile != null ? FileImage(_imageFile!) : null,
-                  child: _imageFile == null ? const Icon(Icons.camera_alt, size: 40, color: Colors.blue):null,
+                  backgroundImage: Image.asset('assets/img/avatar.png').image,
                 ),
               ),
             ),
             SizedBox(height: 20),
-            Text('คำนำหน้าชื่อ'),
+            Text(
+              'คำนำหน้าชื่อ',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[800]),
+            ),
             DropdownButtonFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -73,7 +76,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 onChanged: (value){}
             ),
             SizedBox(height: 20),
-            Text('ชื่อจริง'),
+            Text(
+              'ชื่อจริง',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[800]),
+            ),
             TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -82,7 +90,12 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
             SizedBox(height: 20),
-            const Text('นามสกุล'),
+            Text(
+              'นามสกุล',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[800]),
+            ),
             TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -91,7 +104,12 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
             SizedBox(height: 20),
-            Text('เบอร์โทร'),
+            Text(
+              'เบอร์โทร',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[800]),
+            ),
             TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -101,7 +119,12 @@ class _SignUpPageState extends State<SignUpPage> {
               keyboardType: TextInputType.phone,
             ),
             SizedBox(height: 20),
-            Text('วัน/เดือน/ปีเกิด'),
+            Text(
+              'วัน/เดือน/ปีเกิด',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue[800]),
+            ),
             TextFormField(
               readOnly: true,
               onTap: () => _selectDate(context),
